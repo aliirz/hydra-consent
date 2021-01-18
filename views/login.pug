@@ -1,26 +1,25 @@
 extends layout
 
 block content
-    h1(id="login-title") Please log in
+    h1(id="login-title") Please log in with your pehchaan id
     if error
         p.
             #{error}
-    form(action=action, method="POST")
-        input(type="hidden", name="_csrf", value=csrfToken)
-        input(type="hidden", name="challenge", value=challenge)
-        table(style="")
-            tr
-                td
-                    input(type="email", id="email", name="email")
-                td.
-                    (it's "foo@bar.com")
-            tr
-                td
-                    input(type="password", id="password", name="password")
-                td.
-                    (it's "foobar")
-        input(type="checkbox", id="remember", name="remember", value="1")
-        label(for="remember") Remember me
-        br
-        input(type="submit", id="accept", name="submit", value="Log in")
-        input(type="submit", id="reject", name="submit", value="Deny access")
+    form.pure-form.pure-form-aligned(action=action, method="POST")
+        fieldset
+            input(type="hidden", name="_csrf", value=csrfToken)
+            input(type="hidden", name="challenge", value=challenge)
+            .pure-control-group
+                 label(for='email') Email
+                 input(type="email", id="email", name="email")
+            .pure-control-group
+                label(for='password') Password
+                input(type="password", id="password", name="password")
+            .pure-controls
+                button.pure-button.pure-button-success(type='submit') Submit
+                button.pure-button.pure-button-error(type='submit') Deny access
+            //- input(type="submit", id="accept", name="submit", value="Log in")
+            //- input(type="submit", id="reject", name="submit", value="Deny access")
+
+
+

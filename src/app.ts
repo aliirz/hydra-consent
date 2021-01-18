@@ -66,5 +66,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 const listenOn = Number(process.env.PORT || 3000)
 app.listen(listenOn, () => {
-  console.log(`Listening on http://0.0.0.0:${listenOn}`)
+  console.log(`Consent App running on http://0.0.0.0:${listenOn}`)
 })
